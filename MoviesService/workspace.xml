@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b901fda7-9d6a-4f59-87c9-d2c42c8d9153" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/logs/example-service-logger.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/DemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/config/TokenConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/InventoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddCategoryForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddInventoryForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/CountProductCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/ProductCategoryName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/ProductObjectwithNameCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/RegisterForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateCategoryForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateInventoryForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/entity/CategoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/entity/InventoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/entity/ProductEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/entity/SessionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/RecordNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/SapoExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/filter/AuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/model/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/model/UserSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/CategoryRepositoryJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/InventoryRepositoryJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/ProductRepositoryJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/UserSessionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/InventoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/JWTService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/CategoryServiceJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/InventoryServiceJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/ProductServiceJPA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/java/com/sapo/edu/demo/util/EncodeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Ex8 JWT/spring-dependency-injection/src/test/java/com/sapo/edu/demo/DemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/ProductCategoryName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/RecordNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/exception/SapoExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 3-4-5/Ex04_Sring Boot Basic/spring-dependency-injection/src/main/java/com/sapo/edu/demo/services/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 3-4-5/Ex04_Sring Boot Basic/spring-dependency-injection/src/main/java/com/sapo/edu/demo/services/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 6~8/Ex6/Ex6-Rest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 6~8/Ex6/Ex6-Rest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddCategoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddCategoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddInventoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddInventoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddProductForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/AddProductForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/CountProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/CountProductCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/ProductObjectwithNameCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/ProductObjectwithNameCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateCategoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateCategoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateInventoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateInventoryForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateProductForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/dto/UpdateProductForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/ProductRepositoryJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/repository/ProductRepositoryJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/CategoryServiceJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/CategoryServiceJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/InventoryServiceJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/InventoryServiceJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/ProductServiceJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Day 8,9,10/Ex7 Restfull API/spring-dependency-injection/src/main/java/com/sapo/edu/demo/service/jpa/ProductServiceJPA.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1zY6e7lUjjzG3XflMUbMli6TxyP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/sapo/edu/demo" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sapo.edu.demo.repository" />
+      <recent name="com.sapo.edu.demo.service.jdbc" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sapo.edu.demo.util" />
+      <recent name="com.sapo.edu.demo.config" />
+      <recent name="com.sapo.edu.demo.service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-dependency-injection" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.service.movie.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b901fda7-9d6a-4f59-87c9-d2c42c8d9153" name="Default Changelist" comment="" />
+      <created>1634312767233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634312767233</updated>
+      <workItem from="1634312768588" duration="4858000" />
+      <workItem from="1634351722378" duration="829000" />
+      <workItem from="1634390500544" duration="16623000" />
+      <workItem from="1634526260274" duration="13930000" />
+      <workItem from="1634605729558" duration="7165000" />
+      <workItem from="1634712087652" duration="4264000" />
+      <workItem from="1634833992791" duration="264000" />
+      <workItem from="1634885112411" duration="8162000" />
+      <workItem from="1634919280727" duration="6184000" />
+      <workItem from="1634994745193" duration="648000" />
+      <workItem from="1634998376925" duration="12982000" />
+      <workItem from="1635125210217" duration="2739000" />
+      <workItem from="1635267991707" duration="820000" />
+      <workItem from="1635296314290" duration="13064000" />
+      <workItem from="1635322908202" duration="1044000" />
+      <workItem from="1635323962377" duration="5796000" />
+      <workItem from="1635349290179" duration="2320000" />
+      <workItem from="1635385797975" duration="6367000" />
+      <workItem from="1635490182782" duration="2257000" />
+      <workItem from="1635495258345" duration="4211000" />
+      <workItem from="1635601326141" duration="616000" />
+      <workItem from="1635646621372" duration="10812000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
