@@ -16,3 +16,4 @@ spring:
           uri: lb://cinema-service/
           predicates:
             - Path=/**
+

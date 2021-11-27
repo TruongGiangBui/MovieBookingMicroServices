@@ -65,7 +65,8 @@ public class ScheduleService {
         for(Integer seat:seats){
                 schedule.getSeatslist().set(seat,"2");
         }
-        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+//        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+        scheduleRepository.saveAndFlush(schedule.toEntity());
     }
     public void orderSeats(Integer scheduleid,List<Integer> seats) throws Exception {
         Schedule schedule=getScheduleById(scheduleid);
@@ -77,7 +78,8 @@ public class ScheduleService {
         for(Integer seat:seats) {
             schedule.getSeatslist().set(seat, "1");
         }
-        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+//        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+        scheduleRepository.saveAndFlush(schedule.toEntity());
     }
     public void unselectSeats(Integer scheduleid,List<Integer> seats) throws Exception {
         Schedule schedule=getScheduleById(scheduleid);
@@ -89,6 +91,7 @@ public class ScheduleService {
         for(Integer seat:seats){
             schedule.getSeatslist().set(seat,"0");
         }
-        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+//        scheduleRepository.updateSeats(scheduleid,schedule.toEntity().getSeats());
+        scheduleRepository.saveAndFlush(schedule.toEntity());
     }
 }
