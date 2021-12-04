@@ -1,5 +1,6 @@
 server:
   port: 8080
+  forward-headers-strategy: FRAMEWORK
 eureka:
   client:
     serviceUrl:
@@ -12,8 +13,16 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: cinema
+        - id: movies-service
+          uri: lb://movies-service/
+          predicates:
+            - Path=/movie/**
+          filters:
+            - RewritePath=/movie/(?<segment>.*), /$\{segment}
+        - id: cinema-service
           uri: lb://cinema-service/
           predicates:
-            - Path=/**
+            - Path=/cinema/**
+          filters:
+            - RewritePath=/cinema/(?<segment>.*), /$\{segment}
 

@@ -1,18 +1,17 @@
 package com.service.cinema.service;
 
-import com.service.cinema.entity.NowShowingEntity;
 import com.service.cinema.entity.ScheduleEntity;
-import com.service.cinema.model.AddScheduleForm;
-import com.service.cinema.model.Movie;
+import com.service.cinema.dto.AddScheduleForm;
 import com.service.cinema.model.Schedule;
 import com.service.cinema.repository.NowShowingRepository;
 import com.service.cinema.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,9 +20,21 @@ public class ScheduleService {
     private NowShowingRepository nowShowingRepository;
     @Autowired
     private ScheduleRepository scheduleRepository;
-    public List<Schedule> getAllSchedulesByCinemaId(Integer cinemaid){
+    public List<Schedule> getAllSchedulesByCinemaId(Integer cinemaid,Integer day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(Calendar.HOUR, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        long nowmillis=System.currentTimeMillis();
+        long days=nowmillis/86400000;
+        Timestamp start= new Timestamp(calendar.getTimeInMillis()+day*86400000);
+        Timestamp end=new Timestamp(calendar.getTimeInMillis()+(day+1)* 86400000L);
+        if(day==0){
+            start=new Timestamp(nowmillis);
+        }
         List<Schedule> schedules=new ArrayList<>();
-        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaid(cinemaid);
+        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndStarttimeBetween(cinemaid,start,end);
         for(ScheduleEntity scheduleEntity:scheduleEntities){
             schedules.add(Schedule.convertEntity(scheduleEntity));
         }
@@ -42,11 +53,24 @@ public class ScheduleService {
                 scheduleEntity.getStarttime(),
                 scheduleEntity.getEndtime(),
                 scheduleEntity.getCapacity(),
-                scheduleEntity.getSeats());
+                scheduleEntity.getSeats(),
+                scheduleEntity.getPrice());
     }
-    public List<Schedule> getNowShowingMoviesSchedules(Integer cinemaid, Integer movieid){
+    public List<Schedule> getNowShowingMoviesSchedules(Integer cinemaid, Integer movieid,Integer day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(Calendar.HOUR, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        long nowmillis=System.currentTimeMillis();
+        long days=nowmillis/86400000;
+        Timestamp start= new Timestamp(calendar.getTimeInMillis()+day*86400000);
+        Timestamp end=new Timestamp(calendar.getTimeInMillis()+(day+1)* 86400000L);
+        if(day==0){
+            start=new Timestamp(nowmillis);
+        }
         List<Schedule> schedules=new ArrayList<>();
-        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndMovieidAndStarttimeGreaterThanEqual(cinemaid,movieid,new Timestamp(System.currentTimeMillis()));
+        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndMovieidAndStarttimeBetween(cinemaid,movieid,start,end);
 
         for(ScheduleEntity scheduleEntity:scheduleEntities){
             schedules.add(Schedule.convertEntity(scheduleEntity));

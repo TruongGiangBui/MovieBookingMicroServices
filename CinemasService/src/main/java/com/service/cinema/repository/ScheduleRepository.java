@@ -14,22 +14,18 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<ScheduleEntity,Integer> {
     ScheduleEntity findScheduleEntityById(Integer id);
-    List<ScheduleEntity> findAllByCinemaid(Integer cinemaid);
-    List<ScheduleEntity> findAllByCinemaidAndMovieidAndStarttimeGreaterThanEqual(Integer cinemaid,Integer movieid,Timestamp time);
+    List<ScheduleEntity> findAllByCinemaidAndStarttimeBetween(Integer cinemaid,Timestamp start,Timestamp end);
+    List<ScheduleEntity> findAllByCinemaidAndMovieidAndStarttimeBetween(Integer cinemaid,Integer movieid,Timestamp start,Timestamp end);
     @Transactional
     @Modifying
-    @Query(value = "insert into schedules(cinema_room,movie_id,cinema_id,start_time,end_time,capacity,seats) " +
-            "values (:room,:movieid,:cinemaid,:start,:end,:capacity,:seats);",nativeQuery = true)
+    @Query(value = "insert into schedules(cinema_room,movie_id,cinema_id,start_time,end_time,capacity,seats,price) " +
+            "values (:room,:movieid,:cinemaid,:start,:end,:capacity,:seats,:price);",nativeQuery = true)
     void insertSchedule(@Param("room") Integer room,
                         @Param("movieid") Integer movieid,
                         @Param("cinemaid") Integer cinemaid,
                         @Param("start") Timestamp start,
                         @Param("end") Timestamp end,
                         @Param("capacity")BigDecimal capacity,
-                        @Param("seats") String seats);
-    @Transactional
-    @Modifying
-    @Query(value = "update schedules " +
-            "set seats=:seats where id=:id",nativeQuery = true)
-    void updateSeats(@Param("id") Integer id,@Param("seats") String seats);
+                        @Param("seats") String seats,
+                        @Param("price") BigDecimal price);
 }

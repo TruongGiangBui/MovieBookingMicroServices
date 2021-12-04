@@ -29,6 +29,7 @@ public class Schedule {
     private Timestamp endtime;
     private BigDecimal capacity;
     private List<String> seatslist;
+    private BigDecimal price;
     public static Schedule convertEntity(ScheduleEntity scheduleEntity){
         ModelMapper modelMapper =new ModelMapper();
         Schedule schedule=modelMapper.map(scheduleEntity,Schedule.class);

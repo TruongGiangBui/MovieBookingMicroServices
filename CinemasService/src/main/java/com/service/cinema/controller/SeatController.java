@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.service.cinema.model.Schedule;
 import com.service.cinema.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class SeatController {
     @Autowired
     private ScheduleService scheduleService;

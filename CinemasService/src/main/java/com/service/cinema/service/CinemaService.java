@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -49,9 +50,50 @@ public class CinemaService {
         List<NowShowingEntity> nowShowingEntities=nowShowingRepository.findAllByCinemaid(cinemaid);
         List<Movie> movies=new ArrayList<>();
         for(NowShowingEntity nowShowingEntity:nowShowingEntities){
-            Movie movie=restTemplate.getForObject("http://movies-service/api/movies/{id}",Movie.class,cinemaid);
+            Movie movie=restTemplate.getForObject("http://movies-service/api/movies/{id}",Movie.class,nowShowingEntity.getMovieid());
             movies.add(movie);
         }
         return movies;
+    }
+    public void fakeCountry(){
+        List<String> list= Arrays.asList(
+                "Đà Nẵng",
+                "Cần Thơ",
+                "Đồng Nai",
+                "Hải Phòng",
+                "Quảng Ninh",
+                "Bà Rịa-Vũng Tàu",
+                "Bình Định",
+                "Bình Dương",
+                "Đắk Lắk",
+                "Trà Vinh",
+                "Yên Bái",
+                "Vĩnh Long",
+                "Kiên Giang",
+                "Hậu Giang",
+                "Hà Tĩnh",
+                "Phú Yên",
+                "Đồng Tháp",
+                "Hưng Yên",
+                "Khánh Hòa",
+                "Kon Tum",
+                "Lạng Sơn",
+                "Nghệ An",
+                "Quảng Ngãi",
+                "Sóc Trăng",
+                "Sơn La",
+                "Tây Ninh",
+                "Thái Nguyên",
+                "Tiền Giang"
+        );
+        int id=3;
+        for(String country:list){
+            CityEntity cityEntity=new CityEntity();
+            cityEntity.setId(id);
+            cityEntity.setCountryid(1);
+            cityEntity.setName(country);
+            cityRepository.save(cityEntity);
+            id++;
+        }
     }
 }

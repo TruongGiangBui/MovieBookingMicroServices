@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RibbonClient(name = "movies-service")
+@CrossOrigin
 public class MovieController {
     private MovieService movieService;
     @Autowired

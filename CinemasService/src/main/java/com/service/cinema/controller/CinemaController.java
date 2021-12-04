@@ -43,20 +43,19 @@ public class CinemaController {
 
     @GetMapping("cinemas/{cinemaid}/schedules")
     @ResponseBody
-    public ResponseEntity<List<Schedule>> getAllSchedulesByCinemaId(@PathVariable(name = "cinemaid") Integer cinemaid){
-        return new ResponseEntity<>(scheduleService.getAllSchedulesByCinemaId(cinemaid),HttpStatus.OK);
+    public ResponseEntity<List<Schedule>> getAllSchedulesByCinemaId(@PathVariable(name = "cinemaid") Integer cinemaid,
+                                                                    @RequestParam(value = "day",required = false) Integer dayfromnow,
+                                                                    @RequestParam(value = "movieid",required = false) Integer movieid){
+        if(dayfromnow==null) dayfromnow=0;
+        if(movieid==null)
+            return new ResponseEntity<>(scheduleService.getAllSchedulesByCinemaId(cinemaid,dayfromnow),HttpStatus.OK);
+        else return new ResponseEntity<>(scheduleService.getNowShowingMoviesSchedules(cinemaid,movieid,dayfromnow),HttpStatus.OK);
     }
 
     @GetMapping("cinemas/{cinemaid}/movies/now-showing")
     @ResponseBody
     public ResponseEntity<List<Movie>> getAllNowShowingMovies(@PathVariable(name = "cinemaid") Integer cinemaid){
         return new ResponseEntity<>(cinemaService.getAllNowShowingMovies(cinemaid),HttpStatus.OK);
-    }
-    @GetMapping("cinemas/{cinemaid}/movies/now-showing/{movieid}/schedules")
-    @ResponseBody
-    public ResponseEntity<List<Schedule>> getNowShowingMoviesSchedules(@PathVariable(name = "cinemaid") Integer cinemaid,
-                                                               @PathVariable(name = "movieid") Integer movieid){
-        return new ResponseEntity<>(scheduleService.getNowShowingMoviesSchedules(cinemaid,movieid),HttpStatus.OK);
     }
 
     @GetMapping("cinemas/schedules/{scheduleid}")

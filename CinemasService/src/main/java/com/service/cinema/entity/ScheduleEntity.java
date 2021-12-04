@@ -28,6 +28,7 @@ public class ScheduleEntity {
     private Timestamp endtime;
     private BigDecimal capacity;
     private String seats;
+    private BigDecimal price;
     @ManyToOne(optional = false)
     @JoinColumn(name = "cinema_id",referencedColumnName = "id",insertable=false, updatable=false)
     private CinemaEntity cinemaEntity;

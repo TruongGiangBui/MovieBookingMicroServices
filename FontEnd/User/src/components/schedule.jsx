@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import SockJsClient from "react-stomp";
 const Schedule = (props) => {
-  const [scheduleid,setScheduleid]=useState(props.match.params.id);
+  const [scheduleid, setScheduleid] = useState(props.match.params.id);
   const [selectedseats, setSelectedseats] = useState(Array());
   const [seats, setSeats] = useState(Array());
   const [data, setData] = useState(Array());
@@ -65,7 +65,6 @@ const Schedule = (props) => {
           if (s[i].status != "selected") {
             s[i].status = "empty";
           }
-          
         }
       }
     }
@@ -74,7 +73,7 @@ const Schedule = (props) => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8080/cinemas/schedules/"+scheduleid)
+      .get("http://localhost:8080/cinema/cinemas/schedules/" + scheduleid)
       .then((res) => {
         handleChangeData(res.data);
       })
@@ -82,10 +81,10 @@ const Schedule = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="schedule_page">
       <SockJsClient
-        url="http://localhost:8080/greeting"
-        topics={["/topic/reply/"+scheduleid]}
+        url="http://localhost:8080/cinema/greeting"
+        topics={["/topic/reply/" + scheduleid]}
         onMessage={(msg) => {
           handleChangeData(msg);
         }}
@@ -103,13 +102,37 @@ const Schedule = (props) => {
           ))}
         </div>
       </div>
-      <button
-        onClick={(e) => {
-          console.log(selectedseats);
-        }}
-      >
-        sdsd
-      </button>
+      <div className="schedule_box_right">
+        <div className="color_des">
+          <div className="color_des_item">
+            <div className="color_pane color1"></div>
+            <div className="color_pane_des">Ghế đã đặt</div>
+          </div>
+          <div className="color_des_item">
+            <div className="color_pane color2"></div>
+            <div className="color_pane_des">Đang chọn</div>
+          </div>
+          <div className="color_des_item">
+            <div className="color_pane color3"></div>
+            <div className="color_pane_des">Còn trống</div>
+          </div>
+          <div className="color_des_item">
+            <div className="color_pane color4"></div>
+            <div className="color_pane_des">Đang xử lí</div>
+          </div>
+        </div>
+        <div className="selected_list">Ghế đã chọn: {selectedseats.map(seat=>(
+          " "+convertSeatName(seat)
+        ))}</div>
+        <div
+          className="select_seat_btn"
+          onClick={(e) => {
+            console.log(selectedseats);
+          }}
+        >
+          Đặt vé
+        </div>
+      </div>
     </div>
   );
 };
