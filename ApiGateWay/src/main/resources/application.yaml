@@ -25,4 +25,10 @@ spring:
             - Path=/cinema/**
           filters:
             - RewritePath=/cinema/(?<segment>.*), /$\{segment}
+        - id: payment-service
+          uri: lb://payment-service/
+          predicates:
+            - Path=/payment/**
+          filters:
+            - RewritePath=/payment/(?<segment>.*), /$\{segment}
 
