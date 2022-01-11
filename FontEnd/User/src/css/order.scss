@@ -1,0 +1,40 @@
+.order_page {
+    display: flex;
+    justify-content: space-around;
+    .leftpane{
+        width: 400px;
+        height: 800px;
+        margin-top: 100px;
+    }
+    .tiketpane{
+        width: 400px;
+        height: 400px;
+        background-color: whitesmoke;
+        border-radius: 20px;
+        padding-top: 50px;
+        .ticketid{
+            font-weight: 600;
+            font-size: 1.5rem;
+
+        }
+        
+        .movie{
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        table{
+            margin-top: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        tr{
+            padding: 15px;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+       
+    }
+}

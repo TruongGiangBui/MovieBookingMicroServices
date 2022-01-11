@@ -4,12 +4,10 @@ package com.service.cinema.service;
 import com.service.cinema.entity.*;
 import com.service.cinema.model.Cinema;
 import com.service.cinema.model.Movie;
-import com.service.cinema.model.Schedule;
 import com.service.cinema.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +53,8 @@ public class CinemaService {
         }
         return movies;
     }
+
+
     public void fakeCountry(){
         List<String> list= Arrays.asList(
                 "Đà Nẵng",

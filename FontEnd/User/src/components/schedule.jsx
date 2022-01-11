@@ -71,6 +71,23 @@ const Schedule = (props) => {
     console.log(s);
     setSeats(s);
   };
+  const order=()=>{
+    console.log(selectedseats);
+    var form={
+      "schedule_id": props.match.params.id,
+      "seats":selectedseats
+    }
+    axios.post(`http://localhost:8080/booking/order/create`,form)
+      .then(res => {
+            console.log(res.data);
+            if(res.data.code===0){
+               this.setState({
+                   message:res.data.message
+               })
+              }
+      })
+      .catch(error => console.log(error));
+  }
   useEffect(() => {
     axios
       .get("http://localhost:8080/cinema/cinemas/schedules/" + scheduleid)
@@ -127,7 +144,7 @@ const Schedule = (props) => {
         <div
           className="select_seat_btn"
           onClick={(e) => {
-            console.log(selectedseats);
+            order();
           }}
         >
           Đặt vé

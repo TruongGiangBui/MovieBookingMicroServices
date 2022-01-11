@@ -14,8 +14,8 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<ScheduleEntity,Integer> {
     ScheduleEntity findScheduleEntityById(Integer id);
-    List<ScheduleEntity> findAllByCinemaidAndStarttimeBetween(Integer cinemaid,Timestamp start,Timestamp end);
-    List<ScheduleEntity> findAllByCinemaidAndMovieidAndStarttimeBetween(Integer cinemaid,Integer movieid,Timestamp start,Timestamp end);
+    List<ScheduleEntity> findAllByCinemaidAndStarttimeBetweenOrderByStarttime(Integer cinemaid,Timestamp start,Timestamp end);
+    List<ScheduleEntity> findAllByCinemaidAndMovieidAndStarttimeBetweenOrderByStarttime(Integer cinemaid,Integer movieid,Timestamp start,Timestamp end);
     @Transactional
     @Modifying
     @Query(value = "insert into schedules(cinema_room,movie_id,cinema_id,start_time,end_time,capacity,seats,price) " +

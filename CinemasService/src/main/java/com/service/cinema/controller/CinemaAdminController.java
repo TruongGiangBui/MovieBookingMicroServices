@@ -15,7 +15,7 @@ public class CinemaAdminController {
     private ScheduleService scheduleService;
     @Autowired
     private CinemaService cinemaService;
-    @PostMapping("cinemas/schedules")
+    @PostMapping("/cinemas/schedules")
     @ResponseBody
     public ResponseEntity<String> addSchedule(@RequestBody AddScheduleForm addScheduleForm){
         try{

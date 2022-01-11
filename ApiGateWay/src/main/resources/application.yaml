@@ -31,4 +31,10 @@ spring:
             - Path=/payment/**
           filters:
             - RewritePath=/payment/(?<segment>.*), /$\{segment}
+        - id: booking-service
+          uri: lb://booking-service/
+          predicates:
+            - Path=/booking/**
+          filters:
+            - RewritePath=/booking/(?<segment>.*), /$\{segment}
 

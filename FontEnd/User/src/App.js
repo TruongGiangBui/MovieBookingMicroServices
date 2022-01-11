@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Schedule from "./components/schedule.jsx"
 import Home from "./components/home";
 import MovieSchedules from "./components/movieschedule";
-
-
+import Order from "./components/order";
+//sudo kill -9 `sudo lsof -t -i:9001`
 function App(props) {
   
   return (
@@ -17,6 +17,11 @@ function App(props) {
 
         </nav>
         <Switch>
+        <Route
+            exact
+            path="/order/:id"
+            component={Order}
+          ></Route>
           <Route
             exact
             path="/schedules/:id"

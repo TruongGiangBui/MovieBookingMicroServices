@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class ScheduleService {
@@ -20,25 +20,26 @@ public class ScheduleService {
     private NowShowingRepository nowShowingRepository;
     @Autowired
     private ScheduleRepository scheduleRepository;
-    public List<Schedule> getAllSchedulesByCinemaId(Integer cinemaid,Integer day){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        calendar.set(Calendar.HOUR, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        long nowmillis=System.currentTimeMillis();
-        long days=nowmillis/86400000;
-        Timestamp start= new Timestamp(calendar.getTimeInMillis()+day*86400000);
-        Timestamp end=new Timestamp(calendar.getTimeInMillis()+(day+1)* 86400000L);
-        if(day==0){
-            start=new Timestamp(nowmillis);
+    public List<Schedule> getAllSchedulesByCinemaId(Integer cinemaid,Integer day)  {
+
+        try{
+            long nowmillis=System.currentTimeMillis();
+            SimpleDateFormat format=new SimpleDateFormat("yyyyMMdd");
+            long beginday=format.parse(String.format("%4d%02d%02d",LocalDateTime.now().getYear(),LocalDateTime.now().getMonthValue(),LocalDateTime.now().getDayOfMonth())).getTime();
+            Timestamp start= new Timestamp(beginday+day*86400000L);
+            Timestamp end=new Timestamp(beginday+(day+1)* 86400000L);
+            if(day==0){
+                start=new Timestamp(nowmillis);
+            }
+            List<Schedule> schedules=new ArrayList<>();
+            List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndStarttimeBetweenOrderByStarttime(cinemaid,start,end);
+            for(ScheduleEntity scheduleEntity:scheduleEntities){
+                schedules.add(Schedule.convertEntity(scheduleEntity));
+            }
+            return schedules;
+        }catch (Exception e){
+            return null;
         }
-        List<Schedule> schedules=new ArrayList<>();
-        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndStarttimeBetween(cinemaid,start,end);
-        for(ScheduleEntity scheduleEntity:scheduleEntities){
-            schedules.add(Schedule.convertEntity(scheduleEntity));
-        }
-        return schedules;
     }
     public Schedule getScheduleById(Integer id){
         return Schedule.convertEntity(scheduleRepository.findScheduleEntityById(id));
@@ -57,25 +58,27 @@ public class ScheduleService {
                 scheduleEntity.getPrice());
     }
     public List<Schedule> getNowShowingMoviesSchedules(Integer cinemaid, Integer movieid,Integer day){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        calendar.set(Calendar.HOUR, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        long nowmillis=System.currentTimeMillis();
-        long days=nowmillis/86400000;
-        Timestamp start= new Timestamp(calendar.getTimeInMillis()+day*86400000);
-        Timestamp end=new Timestamp(calendar.getTimeInMillis()+(day+1)* 86400000L);
-        if(day==0){
-            start=new Timestamp(nowmillis);
-        }
-        List<Schedule> schedules=new ArrayList<>();
-        List<ScheduleEntity> scheduleEntities=scheduleRepository.findAllByCinemaidAndMovieidAndStarttimeBetween(cinemaid,movieid,start,end);
 
-        for(ScheduleEntity scheduleEntity:scheduleEntities){
-            schedules.add(Schedule.convertEntity(scheduleEntity));
+        try {
+            long nowmillis = System.currentTimeMillis();
+            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+            long beginday = format.parse(String.format("%4d%02d%02d", LocalDateTime.now().getYear(), LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth())).getTime();
+            Timestamp start = new Timestamp(beginday + day * 86400000L);
+            Timestamp end = new Timestamp(beginday + (day + 1) * 86400000L);
+            if (day == 0) {
+                start = new Timestamp(nowmillis);
+            }
+            List<Schedule> schedules = new ArrayList<>();
+            List<ScheduleEntity> scheduleEntities = scheduleRepository.findAllByCinemaidAndMovieidAndStarttimeBetweenOrderByStarttime(cinemaid, movieid, start, end);
+
+            for (ScheduleEntity scheduleEntity : scheduleEntities) {
+                schedules.add(Schedule.convertEntity(scheduleEntity));
+            }
+            return schedules;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return schedules;
     }
 
     public void selectSeats(Integer scheduleid,List<Integer> seats) throws Exception {
