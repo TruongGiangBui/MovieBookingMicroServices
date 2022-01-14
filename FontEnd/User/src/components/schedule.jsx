@@ -4,11 +4,15 @@ import Seat from "./subcomponents/seat";
 import { useEffect } from "react";
 import axios from "axios";
 import SockJsClient from "react-stomp";
+import { useHistory } from "react-router-dom";
 const Schedule = (props) => {
   const [scheduleid, setScheduleid] = useState(props.match.params.id);
   const [selectedseats, setSelectedseats] = useState(Array());
   const [seats, setSeats] = useState(Array());
   const [data, setData] = useState(Array());
+  const history = useHistory();
+  const [showalert, setShowAlert] = useState(false);
+  const [err, setErr] = useState(false);
   const onSelectSeat = (id) => {
     var s = selectedseats;
     s.push(id);
@@ -71,23 +75,31 @@ const Schedule = (props) => {
     console.log(s);
     setSeats(s);
   };
-  const order=()=>{
+  const order = () => {
     console.log(selectedseats);
-    var form={
-      "schedule_id": props.match.params.id,
-      "seats":selectedseats
-    }
-    axios.post(`http://localhost:8080/booking/order/create`,form)
-      .then(res => {
-            console.log(res.data);
-            if(res.data.code===0){
-               this.setState({
-                   message:res.data.message
-               })
-              }
+    var form = {
+      schedule_id: props.match.params.id,
+      seats: selectedseats,
+    };
+    // axios.post(`http://localhost:8080/booking/order/create`,form,
+    axios
+      .post(`http://localhost:8025/order/create`, form, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
       })
-      .catch(error => console.log(error));
-  }
+      .then((res) => {
+        // history.push("/order/"+res.data.id)
+        if (res.status == 200) {
+          //  this.setState({
+          //      message:res.data.message
+          //  })
+          history.push("/order/" + res.data.id);
+        }
+      })
+      .catch((error) => console.log(error));
+  };
   useEffect(() => {
     axios
       .get("http://localhost:8080/cinema/cinemas/schedules/" + scheduleid)
@@ -138,17 +150,52 @@ const Schedule = (props) => {
             <div className="color_pane_des">Đang xử lí</div>
           </div>
         </div>
-        <div className="selected_list">Ghế đã chọn: {selectedseats.map(seat=>(
-          " "+convertSeatName(seat)
-        ))}</div>
-        <div
-          className="select_seat_btn"
-          onClick={(e) => {
-            order();
-          }}
-        >
-          Đặt vé
+        <div className="selected_list">
+          Ghế đã chọn:{" "}
+          {selectedseats.map((seat) => " " + convertSeatName(seat))}
         </div>
+        {!showalert ? (
+          <div
+            className="select_seat_btn"
+            onClick={(e) => {
+              if (selectedseats.length == 0) {
+                setErr(true);
+              } else {
+                setErr(false);
+                setShowAlert(true);
+              }
+              
+            }}
+          >
+            Đặt vé
+          </div>
+        ) : (
+          <div className="Alert">
+            <div className="Alert_content">Bạn có muốn xác nhận đặt vé?</div>
+         
+              <div className="AlertPanel">
+                <div
+                  className="confirm_seat_btn"
+                  style={{ "background-color": "#c6d57e" }}
+                  onClick={(e) => {
+                    order();
+                  }}
+                >
+                  Xác nhận
+                </div>
+                <div
+                  className="confirm_seat_btn"
+                  style={{ "background-color": "rgb(196, 24, 24)" }}
+                  onClick={(e) => {
+                    setShowAlert(false);
+                  }}
+                >
+                  Hủy bỏ
+                </div>
+              </div>
+          </div>
+        )}
+        {err?<div className="Err_content">Vui lòng chọn ghế !!!</div>:<div></div>}
       </div>
     </div>
   );

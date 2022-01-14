@@ -27,3 +27,12 @@
 .logoutbtn{
   margin-right: 50px;
 }
+.navbar{
+  display: flex;
+  justify-content: left;
+}
+.linkhome{
+  margin-left: 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}

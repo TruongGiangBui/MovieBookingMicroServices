@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
+@CrossOrigin
 public class PaymentController {
     @Autowired
     private RestTemplate restTemplate;
@@ -32,18 +33,16 @@ public class PaymentController {
         if(message.getCode()==200) {
 //            /order/callafterPayorder
             restTemplate.postForEntity("http://booking-service/order/callafterPayorder", form.getOrderid(), String.class);
-            return new ResponseEntity<>(message, HttpStatus.OK);
         }
-        else
-            return new ResponseEntity<>(message,HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(message, HttpStatus.OK);
+
+
     }
     @GetMapping("/payment/checkPaidOrder")
     @ResponseBody
     public ResponseEntity<Message> checkPaidOrder(@RequestParam("orderid") Integer orderid){
         Message message=paymentService.checkPaidOrder(orderid);
-        if(message.getCode()==200)
             return new ResponseEntity<>(message,HttpStatus.OK);
-        else
-            return new ResponseEntity<>(message,HttpStatus.NOT_ACCEPTABLE);
+
     }
 }

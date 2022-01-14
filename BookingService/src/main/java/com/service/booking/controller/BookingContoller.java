@@ -1,7 +1,9 @@
 package com.service.booking.controller;
 
+import com.service.booking.dto.CancelOrderForm;
 import com.service.booking.dto.CreateOrderForm;
 import com.service.booking.dto.CreateOrderResponse;
+import com.service.booking.model.Message;
 import com.service.booking.model.Order;
 import com.service.booking.model.Ticket;
 import com.service.booking.service.BookingService;
@@ -22,6 +24,12 @@ public class BookingContoller {
     public ResponseEntity<CreateOrderResponse> createOrder(@RequestBody CreateOrderForm form){
         CreateOrderResponse createOrderResponse=  bookingService.createOrder(form);
         return new ResponseEntity<>(createOrderResponse,HttpStatus.OK);
+    }
+    @PostMapping("/order/cancel")
+    @ResponseBody
+    public ResponseEntity<Message> cancelOrder(@RequestBody CancelOrderForm form){
+        Message message=  bookingService.cancelOrder(form.getOrderid());
+        return new ResponseEntity<>(message,HttpStatus.OK);
     }
     @GetMapping("/order/getTickets")
     @ResponseBody

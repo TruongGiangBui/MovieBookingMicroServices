@@ -70,6 +70,22 @@ public class BookingService {
                 .totalamount(orderEntity.getTotalamount())
                 .seatslist(StringUtils.join(order.getSeatslist(), ",")).build();
     }
+    public Message cancelOrder(Integer orderid){
+        try{
+            Gson gson=new Gson();
+            Order order=Order.convertEntity(orderRepository.getOne(orderid));
+
+            SelectSeatForm selectSeatForm=new SelectSeatForm(order.getSchedule(),order.getSeatslist());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<String> request = new HttpEntity<String>(gson.toJson(selectSeatForm), headers);
+            restTemplate.postForEntity("http://cinema-service/cinemas/schedules/unselect", request , String.class );
+
+            return Message.builder().code(200).build();
+        }catch (Exception e){
+            return Message.builder().code(404).build();
+        }
+    }
     public void callafterPayorder(Integer orderid){
         OrderEntity orderEntity=orderRepository.getOne(orderid);
         orderEntity.setCompletlypayment(true);

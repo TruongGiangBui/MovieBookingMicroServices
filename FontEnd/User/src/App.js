@@ -14,7 +14,7 @@ function App(props) {
     <Router>
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top headernav" >
-
+            <Link to='/' className="linkhome">Trang chủ</Link>
         </nav>
         <Switch>
         <Route
