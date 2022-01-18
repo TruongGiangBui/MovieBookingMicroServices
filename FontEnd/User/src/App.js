@@ -7,6 +7,7 @@ import Schedule from "./components/schedule.jsx"
 import Home from "./components/home";
 import MovieSchedules from "./components/movieschedule";
 import Order from "./components/order";
+import Admin from "./components/admin";
 //sudo kill -9 `sudo lsof -t -i:9001`
 function App(props) {
   
@@ -17,6 +18,11 @@ function App(props) {
             <Link to='/' className="linkhome">Trang chủ</Link>
         </nav>
         <Switch>
+        <Route
+            exact
+            path="/admin"
+            component={Admin}
+          ></Route>
         <Route
             exact
             path="/order/:id"

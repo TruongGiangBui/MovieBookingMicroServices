@@ -9,8 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -44,8 +50,13 @@ public class CinemaService {
     }
 
 
-    public List<Movie> getAllNowShowingMovies(Integer cinemaid){
-        List<NowShowingEntity> nowShowingEntities=nowShowingRepository.findAllByCinemaid(cinemaid);
+    public List<Movie> getAllNowShowingMovies(Integer cinemaid,Integer day) throws ParseException {
+        Date date=new Date(System.currentTimeMillis());
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.DATE, day);
+
+        List<NowShowingEntity> nowShowingEntities=nowShowingRepository.findAllByCinemaidAndSdate(cinemaid,new Date(c.getTimeInMillis()));
         List<Movie> movies=new ArrayList<>();
         for(NowShowingEntity nowShowingEntity:nowShowingEntities){
             Movie movie=restTemplate.getForObject("http://movies-service/api/movies/{id}",Movie.class,nowShowingEntity.getMovieid());

@@ -60,12 +60,12 @@ const Home = (props) => {
   }, [cinema, day]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/cinema/cinemas/${cinema}/movies/now-showing`)
+      .get(`http://localhost:8080/cinema/cinemas/${cinema}/movies/now-showing?day=`+day)
       .then((res) => {
         setNowshowings(res.data);
       })
       .catch((error) => console.log(error));
-  }, [cinema]);
+  }, [cinema,day]);
   var today = new Date();
 
   return (
@@ -106,7 +106,7 @@ const Home = (props) => {
       </div>
       <div className="movie_posters">
         <Swiper
-          spaceBetween={0}
+          spaceBetween={10}
           slidesPerView={7}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}

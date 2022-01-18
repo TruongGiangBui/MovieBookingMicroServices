@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -54,8 +55,10 @@ public class CinemaController {
 
     @GetMapping("cinemas/{cinemaid}/movies/now-showing")
     @ResponseBody
-    public ResponseEntity<List<Movie>> getAllNowShowingMovies(@PathVariable(name = "cinemaid") Integer cinemaid){
-        return new ResponseEntity<>(cinemaService.getAllNowShowingMovies(cinemaid),HttpStatus.OK);
+    public ResponseEntity<List<Movie>> getAllNowShowingMovies(@PathVariable(name = "cinemaid") Integer cinemaid,
+                                                              @RequestParam(value = "day",required = false) Integer dayfromnow) throws ParseException {
+        if(dayfromnow==null) dayfromnow=0;
+        return new ResponseEntity<>(cinemaService.getAllNowShowingMovies(cinemaid,dayfromnow),HttpStatus.OK);
     }
 
     @GetMapping("cinemas/schedules/{scheduleid}")

@@ -2,10 +2,8 @@ package com.service.cinema.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,11 +12,14 @@ import javax.persistence.Table;
 @Setter
 @ToString
 @Table(name="cinemas_now_showing")
+@Builder
 public class NowShowingEntity {
     @Id
+    @GeneratedValue
     private Integer id;
     @Column(name="cinema_id")
     private Integer cinemaid;
     @Column(name = "movie_id")
     private Integer movieid;
+    private Date sdate;
 }

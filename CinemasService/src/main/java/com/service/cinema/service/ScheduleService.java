@@ -1,5 +1,6 @@
 package com.service.cinema.service;
 
+import com.service.cinema.entity.NowShowingEntity;
 import com.service.cinema.entity.ScheduleEntity;
 import com.service.cinema.dto.AddScheduleForm;
 import com.service.cinema.model.Schedule;
@@ -8,6 +9,7 @@ import com.service.cinema.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,6 +58,14 @@ public class ScheduleService {
                 scheduleEntity.getCapacity(),
                 scheduleEntity.getSeats(),
                 scheduleEntity.getPrice());
+        if(!nowShowingRepository.existsByCinemaidAndMovieidAndSdate(scheduleEntity.getCinemaid(),scheduleEntity.getMovieid(),new Date(scheduleEntity.getStarttime().getTime()))){
+            NowShowingEntity nowShowingEntity=NowShowingEntity.builder()
+                    .cinemaid(scheduleEntity.getCinemaid())
+                    .movieid(scheduleEntity.getMovieid())
+                    .sdate(new Date(scheduleEntity.getStarttime().getTime()))
+                    .build();
+            nowShowingRepository.saveAndFlush(nowShowingEntity);
+        }
     }
     public List<Schedule> getNowShowingMoviesSchedules(Integer cinemaid, Integer movieid,Integer day){
 
