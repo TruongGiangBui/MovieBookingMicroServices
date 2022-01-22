@@ -118,11 +118,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.netflix.ribbon</groupId>
-            <artifactId>ribbon-eureka</artifactId>
+<!--        <dependency>-->
+<!--            <groupId>com.netflix.ribbon</groupId>-->
+<!--            <artifactId>ribbon-eureka</artifactId>-->
 
-        </dependency>
+<!--        </dependency>-->
     </dependencies>
 
     <build>

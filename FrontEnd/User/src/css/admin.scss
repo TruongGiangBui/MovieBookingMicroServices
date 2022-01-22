@@ -1,0 +1,166 @@
+.container1 {
+  width: 100%;
+  display: flex;
+}
+.left_pane {
+  width: 30%;
+}
+.right_pane {
+  width: 70%;
+}
+.total {
+  margin-top: 200px;
+  width: 70%;
+  margin-left: 15%;
+  height: 200px;
+  background-color: white;
+  border-radius: 20px;
+  line-height: 200px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: yellowgreen;
+}
+.genscheduleform {
+  margin-top: 200px;
+  width: 70%;
+  margin-left: 15%;
+  padding-bottom: 20px;
+  background-color: white;
+  border-radius: 20px;
+  .title{
+      position: relative;
+      top: 10px;
+      height: 40px;
+      background-color: red;
+      margin: 20px;
+        border-radius: 10px;
+        line-height: 40px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+  }
+}
+
+.search_bar_box {
+  width: 800px;
+  height: 50px;
+  padding: 10px;
+  background-color: red;
+  border-radius: 10px;
+  select {
+    width: 250px;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    background-color: white;
+    margin-left: 5px;
+  }
+}
+
+.date{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: red;
+    border-radius: 10px;
+    .Datepicker{
+        outline: none;
+        border:none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+    }
+}
+.movie_list{
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 5%;
+    height: 300px;
+    overflow: scroll;
+    border:2px solid red;
+    
+    .movie_item{
+        height: 100px;
+        display: flex;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-bottom: 1px solid grey;
+        justify-content: space-around;
+        align-items: center;
+        img{
+            height: 100px;
+            padding-bottom: 10px;
+        }
+        .name{
+            width: 50%;
+            font-size: 1.3rem;
+            text-align: left;
+            color: red;
+            font-weight: 600;
+            line-height: 100px;
+            overflow: hidden;
+        }
+        .add{
+            background-color: red;
+            font-weight: 600;
+            line-height: 40px;
+            font-size: 1.5rem;
+            color: white;
+            height:40px ;
+            padding: 5px;
+            border-radius: 5px;
+            width: 10%;
+        }
+        .add:hover{
+            transform: scale(1.1);
+        }
+        .add:active{
+            transform: scale(.9);
+        }
+    }
+}
+.selected_list1{
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 5%;
+    height: 100px;
+    overflow: scroll;
+    border:2px solid red;
+    .selected_item{
+        display: flex;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-bottom: 1px solid grey;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+.head{
+    position: relative;
+    top: 10px;
+    height: 40px;
+
+      border-radius: 10px;
+      line-height: 40px;
+
+      font-size: 1.2rem;
+      font-weight: 600;
+}
+.add1{
+    background-color: red;
+    font-weight: 600;
+    line-height: 40px;
+    font-size: 1.5rem;
+    color: white;
+    height:40px ;
+    padding: 5px;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 20px;
+}
+.add1:hover{
+    transform: scale(1.1);
+}
+.add1:active{
+    transform: scale(.9);
+}

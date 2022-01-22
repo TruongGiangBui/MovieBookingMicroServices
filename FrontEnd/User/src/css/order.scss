@@ -1,0 +1,145 @@
+.order_page {
+    display: flex;
+    justify-content: space-around;
+    .leftpane{
+        width: 400px;
+        height: 800px;
+        margin-top: 100px;
+        .getticketbtn{
+            background-color: saddlebrown;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+        .notice{
+            width: 400px;
+            height: 200px;
+            background-color: whitesmoke;
+            border-radius: 20px;
+            padding-top: 50px;
+            font-weight: 500;
+            font-size: 1.4rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+        }
+    }
+    .tiketpane{
+        width: 400px;
+        height: 400px;
+        background-color: whitesmoke;
+        border-radius: 20px;
+        padding-top: 50px;
+        .ticketid{
+            font-weight: 600;
+            font-size: 1.5rem;
+
+        }
+        
+        .movie{
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        table{
+            margin-top: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        tr{
+            padding: 15px;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+       
+    }
+    .rightpane{
+        width: 800px;
+        height: 800px;
+        margin-top: 100px;
+        background-color: whitesmoke;
+        border-radius: 20px;
+        padding-top: 50px;
+        table{
+            margin-top: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        tr{
+            padding: 15px;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .movie{
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .title{
+            width: 80%;
+            margin-left: 10%;
+            background-color: rgb(255, 194, 81);
+            height: 40px;
+            color: white;
+            border-radius: 10px;
+            line-height: 40px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        input{
+            width: 60%;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+            border-radius: 5px;
+            padding: 5px;
+            padding-left: 20px;
+            outline: solid 1px rgba(245, 109, 12, 0.678) ;
+            border:none;
+        }
+        .notice{
+            margin-top: 20px;
+            font-size: 1.4rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+        }
+        .notice1{
+            margin-top: 20px;
+            font-size: 1.8rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(23, 235, 34);
+            font-weight: 600;
+        }
+        .Confirm_btn{
+            margin-top: 20px;
+            width: 20%;
+            height: 60px;
+            background-color: rgb(255, 194, 81);
+            line-height: 60px;
+            font-size: 1.6rem;
+            color: white;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn_pane{
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin-left: 10%;
+        }
+        .Confirm_btn:active{
+            transform: scale(.9);
+        }
+    }
+}
